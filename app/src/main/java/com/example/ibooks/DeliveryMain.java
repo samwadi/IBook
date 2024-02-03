@@ -42,7 +42,7 @@ public class DeliveryMain extends AppCompatActivity implements BottomNavigationV
                 fragment = new ProfileFragment();
                 break;
             case R.id.menu_selected:
-                fragment = new PostFragment();
+                fragment = new SelectedOrdersFragment();
                 //TODO:: set SelectedOrders screen
                 break;
             default:
