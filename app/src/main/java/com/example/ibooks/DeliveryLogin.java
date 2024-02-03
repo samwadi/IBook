@@ -56,25 +56,25 @@ public class DeliveryLogin extends AppCompatActivity {
 
                     if(isValid()){
 
-                        final ProgressDialog mDialog = new ProgressDialog(DeliveryLogin.this);
-                        mDialog.setCanceledOnTouchOutside(false);
-                        mDialog.setCancelable(false);
-                        mDialog.setMessage("Sign In Please Wait.......");
-                        mDialog.show();
+                        final ProgressDialog progressDialog = new ProgressDialog(DeliveryLogin.this);
+                        progressDialog.setCanceledOnTouchOutside(false);
+                        progressDialog.setCancelable(false);
+                        progressDialog.setMessage("Sign In Please Wait.......");
+                        progressDialog.show();
 
                         Fauth.signInWithEmailAndPassword(emailid,pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if(task.isSuccessful()){
-                                    mDialog.dismiss();
+                                    progressDialog.dismiss();
 
                                     if(Fauth.getCurrentUser().isEmailVerified()){
 
-                                        mDialog.dismiss();
+                                        progressDialog.dismiss();
                                         Toast.makeText(DeliveryLogin.this, "Congratulation! You Have Successfully Logged in", Toast.LENGTH_SHORT).show();
-                                        //TODO:: fix mainhome so it would go to deliveryhome
-                                        Intent Z = new Intent(DeliveryLogin.this, MainHome.class);
+                                        //TODO:: fix mainHome so it would go to DeliveryMain
+                                        Intent Z = new Intent(DeliveryLogin.this, DeliveryMain.class);
                                         isDeliveryCheck();
                                         if (isDelivery){
                                             Toast.makeText(DeliveryLogin.this,"welcome Driver",Toast.LENGTH_LONG).show();
@@ -90,7 +90,7 @@ public class DeliveryLogin extends AppCompatActivity {
 
                                     }
                                 }else{
-                                    mDialog.dismiss();
+                                    progressDialog.dismiss();
                                     Toast.makeText(DeliveryLogin.this,"Error"+task.getException().getMessage(),Toast.LENGTH_LONG).show();
                                 }
                             }
@@ -154,7 +154,6 @@ public class DeliveryLogin extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String currentUserId = auth.getCurrentUser().getUid();
 
-// Assuming your "Role" node structure is like this
         DatabaseReference roleRef = FirebaseDatabase.getInstance().getReference("Role").child(currentUserId);
 
         roleRef.addListenerForSingleValueEvent(new ValueEventListener() {

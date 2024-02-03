@@ -9,7 +9,7 @@ public class ToDeliver {
     private String area;
     private String deliveryPersonId;
     public ToDeliver() {
-        // Default constructor required for Firebase
+        // required for Firebase
     }
 
     public ToDeliver(String deliveryId, String bookId, String requesterId, String ownerId, String city, String area,String deliveryPersonId) {

@@ -10,8 +10,8 @@ import android.widget.ImageView;
 
 public class MainMenu extends AppCompatActivity {
 
-    Button signinemail,signup;
-    ImageView bgimage;
+    Button signInEmail,signup;
+    ImageView bigImage;
 
 
     @Override
@@ -19,14 +19,14 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Animation zoomin = AnimationUtils.loadAnimation(this,R.anim.zoomin);
-        final Animation zoomout = AnimationUtils.loadAnimation(this,R.anim.zoomout);
+        final Animation zoomIn = AnimationUtils.loadAnimation(this,R.anim.zoomin);
+        final Animation zoomOut = AnimationUtils.loadAnimation(this,R.anim.zoomout);
 
-        bgimage=findViewById(R.id.back2);
-        bgimage.setAnimation(zoomin);
-        bgimage.setAnimation(zoomout);
+        bigImage =findViewById(R.id.back2);
+        bigImage.setAnimation(zoomIn);
+        bigImage.setAnimation(zoomOut);
 
-        zoomout.setAnimationListener(new Animation.AnimationListener() {
+        zoomOut.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -34,7 +34,7 @@ public class MainMenu extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                bgimage.startAnimation(zoomin);
+                bigImage.startAnimation(zoomIn);
 
             }
 
@@ -44,7 +44,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        zoomin.setAnimationListener(new Animation.AnimationListener() {
+        zoomIn.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -52,7 +52,7 @@ public class MainMenu extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                bgimage.startAnimation(zoomout);
+                bigImage.startAnimation(zoomOut);
 
             }
 
@@ -61,16 +61,16 @@ public class MainMenu extends AppCompatActivity {
 
             }
         });
-        signinemail=(Button)findViewById(R.id.SignwithEmail);
+        signInEmail =(Button)findViewById(R.id.SignwithEmail);
         //signinphone=(Button)findViewById(R.id.SignwithPhone);
         signup=(Button)findViewById(R.id.Signup);
 
-        signinemail.setOnClickListener(new View.OnClickListener() {
+        signInEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent signemail = new Intent(MainMenu.this,ChooseOne.class);
-                signemail.putExtra("Home","Email");
-                startActivity(signemail);
+                Intent signEmail = new Intent(MainMenu.this,ChooseOne.class);
+                signEmail.putExtra("Home","Email");
+                startActivity(signEmail);
                 finish();
             }
         });

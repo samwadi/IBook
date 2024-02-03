@@ -32,7 +32,6 @@ public class OrderFragment extends Fragment {
     private List<Order> otherOrdersList;
 
     public OrderFragment(Book book) {
-        // Required empty public constructor
     }
     public OrderFragment(){
 
@@ -52,23 +51,19 @@ public class OrderFragment extends Fragment {
         recyclerYourOrders = view.findViewById(R.id.recycler_your_orders);
         recyclerOtherOrders = view.findViewById(R.id.recycler_other_orders);
 
-        // Initialize your orders lists
         yourOrdersList = new ArrayList<>();
         otherOrdersList = new ArrayList<>();
 
-        // Initialize your orders adapters
         yourOrdersAdapter = new OrderAdapter(yourOrdersList,getActivity());
         otherOrdersAdapter = new OrderAdapter(otherOrdersList,getActivity());
 
-        // Set layout manager for RecyclerViews
         recyclerYourOrders.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerOtherOrders.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        // Set adapters for RecyclerViews
         recyclerYourOrders.setAdapter(yourOrdersAdapter);
         recyclerOtherOrders.setAdapter(otherOrdersAdapter);
 
-        // Load your orders and other orders from Firebase or any other data source
+        // Load your orders and other orders
         loadYourOrders();
         loadOtherOrders();
     }

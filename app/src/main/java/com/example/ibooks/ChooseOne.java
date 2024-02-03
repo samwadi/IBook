@@ -46,11 +46,7 @@ public class ChooseOne extends Activity {
                     startActivity(loginemail);
                     finish();
                 }
-//                if(type.equals("Phone")){
-//                    Intent loginphone  = new Intent(ChooseOne.this, ChefLoginPhone.class);
-//                    startActivity(loginphone);
-//                    finish();
-//                }
+
                 if(type.equals("SignUp")){
                     Intent Register  = new Intent(ChooseOne.this, BookOwnerRegistration.class);
                     startActivity(Register);
@@ -67,11 +63,6 @@ public class ChooseOne extends Activity {
 //                    startActivity(loginemailcust);
 //                    finish();
 //                }
-//                if(type.equals("Phone")){
-//                    Intent loginphonecust  = new Intent(ChooseOne.this,Loginphone.class);
-//                    startActivity(loginphonecust);
-//                    finish();
-//                }
 //                if(type.equals("SignUp")){
 //                    Intent Registercust  = new Intent(ChooseOne.this,Registration.class);
 //                    startActivity(Registercust);
@@ -85,15 +76,10 @@ public class ChooseOne extends Activity {
             public void onClick(View v) {
 
                 if(type.equals("Email")){
-//                    Intent loginemail = new Intent(ChooseOne.this,Delivery_Login.class);
-//                    startActivity(loginemail);
+                    Intent loginEmail = new Intent(ChooseOne.this,DeliveryLogin.class);
+                    startActivity(loginEmail);
                     finish();
                 }
-//                if(type.equals("Phone")){
-//                    Intent loginphone  = new Intent(ChooseOne.this,Delivery_Loginphone.class);
-//                    startActivity(loginphone);
-//                    finish();
-//                }
                 if(type.equals("SignUp")){
                     Intent RegisterDelivery  = new Intent(ChooseOne.this,DeliveryRegistration.class);
                     startActivity(RegisterDelivery);

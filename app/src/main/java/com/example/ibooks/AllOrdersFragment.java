@@ -1,7 +1,6 @@
 package com.example.ibooks;
 
 import android.os.Bundle;
-import android.os.UserManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +40,6 @@ public class AllOrdersFragment extends Fragment {
         orderAdapter = new DeliveryOrderAdapter(orderList, new DeliveryOrderAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Order order) {
-                // Handle item click if needed
                 String bookId = order.getBookId();
                 String requesterId = order.getRequesterId();
                 String ownerId = order.getOwnerId();

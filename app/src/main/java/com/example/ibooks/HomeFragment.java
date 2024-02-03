@@ -57,17 +57,14 @@ public class HomeFragment extends Fragment {
 
         // Load data from Firebase
         if (savedInstanceState != null) {
-            // Restore the bookList from the saved state
             bookList =new ArrayList<>( savedInstanceState.getParcelableArrayList(KEY_BOOK_LIST));
             if (bookList == null) {
                 bookList = new ArrayList<>();
             }
-            // Update your RecyclerView or UI with bookList
             updateRecyclerView();
 
         } else {
             // If there is no saved state, load data from Firebase or other sources
-            // and update your RecyclerView
             loadDataFromFirebase();
         }
 
@@ -78,30 +75,25 @@ public class HomeFragment extends Fragment {
     public void onSaveInstanceState(@NonNull Bundle outState) {
         // Save the current bookList when the fragment is about to be destroyed
         super.onSaveInstanceState(outState);
-        // Save your data to the bundle
         outState.putParcelableArrayList(KEY_BOOK_LIST, new ArrayList<>(bookList));
     }
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
         if (savedInstanceState != null) {
-            // Retrieve your data from the bundle
             bookList = savedInstanceState.<Book>getParcelableArrayList(KEY_BOOK_LIST);
-            // Ensure bookList is not null
             if (bookList == null) {
                 bookList = new ArrayList<>();
             }
-            // Update your RecyclerView or UI with bookList
             updateRecyclerView();
         }
     }
     @SuppressLint("NotifyDataSetChanged")
     private void updateRecyclerView() {
         if (bookAdapter == null) {
-            // Initialize your RecyclerView and BookAdapter if not done already
             recyclerView = view.findViewById(R.id.recyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            bookAdapter = new BookAdapter(bookList, new BookAdapter.OnItemClickListener() {
+            bookAdapter = new BookAdapter(bookList,  new BookAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(Book book) {
                     // Handle item click
@@ -109,7 +101,6 @@ public class HomeFragment extends Fragment {
             });
             recyclerView.setAdapter(bookAdapter);
         } else {
-            // Update the existing data set in the adapter and notify it
             ArrayList<Book> arrayList = new ArrayList<>(bookList);
             Bundle bundle = new Bundle();
             bundle.putParcelableArrayList("bookList", (ArrayList<? extends Parcelable>) arrayList);

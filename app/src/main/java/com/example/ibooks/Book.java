@@ -16,7 +16,7 @@ public class Book implements Parcelable {
     private int numberOfPages;
 
     public Book() {
-        // Default constructor required for calls to DataSnapshot.getValue(Book.class)
+        // required for DataSnapshot
     }
 
     protected Book(Parcel in) {
@@ -133,5 +133,4 @@ public class Book implements Parcelable {
         dest.writeString(ownerName);
         dest.writeString(ownerEmail);
     }
-// Constructors, getters, setters...
 }

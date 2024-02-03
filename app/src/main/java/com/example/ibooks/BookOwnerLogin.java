@@ -153,7 +153,6 @@ public class BookOwnerLogin extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String currentUserId = auth.getCurrentUser().getUid();
 
-// Assuming your "Role" node structure is like this
         DatabaseReference roleRef = FirebaseDatabase.getInstance().getReference("Role").child(currentUserId);
 
         roleRef.addListenerForSingleValueEvent(new ValueEventListener() {

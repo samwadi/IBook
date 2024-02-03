@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class DelivertMain extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class DeliveryMain extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,7 @@ public class DelivertMain extends AppCompatActivity implements BottomNavigationV
         switch (item.getItemId()) {
             case R.id.menu_home:
                 fragment = new AllOrdersFragment();
-                //TODO:: set SelectOrder screen
+                //TODO:: set AllOrders screen
                 break;
             case R.id.menu_books:
                 fragment = new HomeFragment();

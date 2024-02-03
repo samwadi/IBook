@@ -30,13 +30,13 @@ public class MainHome extends AppCompatActivity implements BottomNavigationView.
                 fragment = new HomeFragment();
                 break;
             case R.id.menu_orders:
-                fragment = new OrderFragment(); // Assuming you have an OrdersFragment
+                fragment = new OrderFragment();
                 break;
             case R.id.menu_profile:
-                fragment = new ProfileFragment(); // Assuming you have a ProfileFragment
+                fragment = new ProfileFragment();
                 break;
             case R.id.menu_post:
-                fragment = new PostFragment(); // Assuming you have a PostFragment
+                fragment = new PostFragment();
                 break;
             default:
                 fragment = new HomeFragment();

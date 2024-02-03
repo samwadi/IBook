@@ -37,7 +37,7 @@ public class BookOwnerRegistration extends AppCompatActivity {
 
     TextInputLayout Fname,Lname,Email,Pass,cpass, mobileNum, houseNum,area,pincode;
     Spinner CitySpin, areaSpin;
-    Button signup, buttonEmail, Phone;
+    Button signup, buttonEmail;
     CountryCodePicker Cpp;
     FirebaseAuth FAuth;
     DatabaseReference databaseReference;
@@ -185,22 +185,20 @@ public class BookOwnerRegistration extends AppCompatActivity {
 
                                                     }
                                                 });
-
                                     }
                                 });
                             }
                         }
                     });
                 }
-//
             }
         });
     buttonEmail.setOnClickListener(new View.OnClickListener(){
 
         @Override
         public void onClick(View v) {
-            Intent loginemail  = new Intent(BookOwnerRegistration.this, BookOwnerLogin.class);
-            startActivity(loginemail);
+            Intent loginEmail  = new Intent(BookOwnerRegistration.this, BookOwnerLogin.class);
+            startActivity(loginEmail);
             finish();
         }
     });
@@ -268,7 +266,7 @@ public class BookOwnerRegistration extends AppCompatActivity {
         }else{
             if(!password.equals(confpassword)){
                 cpass.setErrorEnabled(true);
-                cpass.setError("Password Dosen't Match");
+                cpass.setError("Passwords Don't Match");
             }else{
                 isValidconfpassword = true;
             }
@@ -292,7 +290,7 @@ public class BookOwnerRegistration extends AppCompatActivity {
         }
         if(TextUtils.isEmpty(Pincode)){
             pincode.setErrorEnabled(true);
-            pincode.setError("Please Enter Pincode");
+            pincode.setError("Please Enter PinCode");
         }else{
             isValidpincode = true;
         }

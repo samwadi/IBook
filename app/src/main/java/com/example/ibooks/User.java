@@ -4,7 +4,6 @@ public class User {
 
     private String Area, City, ConfirmPassword, Emailid, Fname, House, Lname, Mobile, Password, Postcode, State;
 
-    // Press Alt+Insert
 
 
     public User(String area, String city, String confirmPassword, String emailid, String fname, String house, String lname, String mobile, String password, String postcode, String state) {
