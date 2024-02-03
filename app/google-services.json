@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "973334962037",
+    "firebase_url": "https://classproject-fef88-default-rtdb.firebaseio.com",
+    "project_id": "classproject-fef88",
+    "storage_bucket": "classproject-fef88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973334962037:android:1c3581c9dc22233a243d3c",
+        "android_client_info": {
+          "package_name": "com.example.ibooks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbobsiFxloWzCYccVWrx7P53uqKigYkEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973334962037:android:117d11993645ef88243d3c",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbobsiFxloWzCYccVWrx7P53uqKigYkEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973334962037:android:dec28bbcc3563f36243d3c",
+        "android_client_info": {
+          "package_name": "com.samwadi.classapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbobsiFxloWzCYccVWrx7P53uqKigYkEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

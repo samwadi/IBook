@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="249dp"
+        android:layout_height="121dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <Button
+        android:id="@+id/btnSelectImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:text="Select Image" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="367dp"
+        android:layout_height="63dp"
+        android:layout_below="@id/btnSelectImage"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Name" />
+    <EditText
+        android:id="@+id/editTextFaculty"
+        android:layout_width="367dp"
+        android:layout_height="63dp"
+        android:layout_below="@id/editTextName"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Faculty" />
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="384dp"
+        android:layout_height="66dp"
+        android:layout_below="@id/editTextFaculty"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Price" />
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="378dp"
+        android:layout_height="72dp"
+        android:layout_below="@id/editTextPrice"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Description" />
+
+    <EditText
+        android:id="@+id/editTextPages"
+        android:layout_width="387dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/editTextDescription"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Number of Pages" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPages"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Send" />
+</RelativeLayout>

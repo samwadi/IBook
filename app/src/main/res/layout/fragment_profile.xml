@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Replace with your desired layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/imageProfile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/img"
+    android:layout_above="@+id/displayNameTextView"/>
+
+        <TextView
+            android:id="@+id/nameTxt"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/displayNameTextView"
+            android:layout_below="@+id/imageProfile"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="20dp"
+            android:contentDescription="Name"
+            android:text="Name"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/displayNameTextView"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/emailTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="107dp"
+            android:layout_marginBottom="37dp"
+            android:text="Display Name" />
+
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/signOutButton"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="145dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginBottom="63dp"
+            android:text="Email" />
+
+        <Button
+            android:id="@+id/signOutButton"
+            android:layout_width="128dp"
+            android:layout_height="77dp"
+            android:layout_above="@+id/editDataButton"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginEnd="143dp"
+            android:layout_marginBottom="44dp"
+            android:text="Sign Out" />
+
+        <Button
+            android:id="@+id/editDataButton"
+            android:layout_width="133dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="143dp"
+            android:layout_marginEnd="135dp"
+            android:layout_marginBottom="183dp"
+            android:text="Edit Data" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

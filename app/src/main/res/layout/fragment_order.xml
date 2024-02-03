@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/text_your_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Orders"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Orders requested from others -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_your_orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/text_other_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other Orders"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/recycler_your_orders"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_other_orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recycler_your_orders"
+        android:layout_marginTop="64dp" />
+
+</RelativeLayout>

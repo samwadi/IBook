@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/book_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/img" />
+
+    <TextView
+        android:id="@+id/book_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/book_image"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/book_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Price"
+        android:layout_below="@id/book_name"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/book_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Description"
+        android:layout_below="@id/book_price"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/owner_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Owner: John Doe"
+        android:layout_below="@id/book_description"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/owner_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: john.doe@example.com"
+        android:layout_below="@id/owner_name"
+        android:layout_marginTop="4dp" />
+
+    <Button
+        android:id="@+id/order_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order"
+        android:layout_below="@id/owner_email"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>

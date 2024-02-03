@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IBooks</string>
+    <string name="firstname">FirstName</string>
+    <string-array name="State">
+        <item>Ramallah</item>
+        <item>Birzeit</item>
+        <item>Albireh</item>
+    </string-array>
+</resources>
