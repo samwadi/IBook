@@ -1,4 +1,4 @@
-package com.example.ibooks;
+package com.example.ibooks.delivery;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.ibooks.R;
+
 import java.util.List;
 
 public class SelectedOrdersAdapter extends RecyclerView.Adapter<SelectedOrdersAdapter.ViewHolder> {

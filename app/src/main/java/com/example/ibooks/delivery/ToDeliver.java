@@ -1,4 +1,4 @@
-package com.example.ibooks;
+package com.example.ibooks.delivery;
 
 public class ToDeliver {
     private String deliveryId;

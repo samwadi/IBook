@@ -12,6 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ibooks.Book;
+import com.example.ibooks.R;
+import com.example.ibooks.owner.BookAdapter;
+import com.example.ibooks.owner.BookDetailsFragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

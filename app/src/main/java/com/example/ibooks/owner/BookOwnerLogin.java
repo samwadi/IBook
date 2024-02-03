@@ -1,4 +1,4 @@
-package com.example.ibooks;
+package com.example.ibooks.owner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ibooks.ForgotPassword;
+import com.example.ibooks.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -107,7 +109,7 @@ public class BookOwnerLogin extends AppCompatActivity {
             Forgotpassword.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(BookOwnerLogin.this,ForgotPassword.class));
+                    startActivity(new Intent(BookOwnerLogin.this, ForgotPassword.class));
                     finish();
                 }
             });

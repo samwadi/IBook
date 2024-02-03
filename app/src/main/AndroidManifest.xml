@@ -23,12 +23,12 @@
         </activity>
         <activity android:name=".MainMenu"></activity>
         <activity android:name=".ChooseOne"></activity>
-        <activity android:name=".BookOwnerLogin"></activity>
-        <activity android:name=".BookOwnerRegistration"></activity>
+        <activity android:name=".owner.BookOwnerLogin"></activity>
+        <activity android:name=".owner.BookOwnerRegistration"></activity>
         <activity android:name=".ForgotPassword"></activity>
-        <activity android:name=".MainHome"></activity>
-        <activity android:name=".DeliveryRegistration"> </activity>
-        <activity android:name=".DeliveryLogin"></activity>
+        <activity android:name=".owner.MainHome"></activity>
+        <activity android:name=".delivery.DeliveryRegistration"> </activity>
+        <activity android:name=".delivery.DeliveryLogin"></activity>
 
 
 

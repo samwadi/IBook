@@ -1,4 +1,4 @@
-package com.example.ibooks;
+package com.example.ibooks.owner;
 
 import androidx.fragment.app.Fragment;
 import android.app.Activity;
@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.ibooks.Book;
+import com.example.ibooks.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

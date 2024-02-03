@@ -9,6 +9,11 @@ import android.widget.Button;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.example.ibooks.delivery.DeliveryLogin;
+import com.example.ibooks.delivery.DeliveryRegistration;
+import com.example.ibooks.owner.BookOwnerLogin;
+import com.example.ibooks.owner.BookOwnerRegistration;
+
 public class ChooseOne extends Activity {
     Button Owner,Customer,DeliveryPerson;
     Intent intent;
@@ -76,12 +81,12 @@ public class ChooseOne extends Activity {
             public void onClick(View v) {
 
                 if(type.equals("Email")){
-                    Intent loginEmail = new Intent(ChooseOne.this,DeliveryLogin.class);
+                    Intent loginEmail = new Intent(ChooseOne.this, DeliveryLogin.class);
                     startActivity(loginEmail);
                     finish();
                 }
                 if(type.equals("SignUp")){
-                    Intent RegisterDelivery  = new Intent(ChooseOne.this,DeliveryRegistration.class);
+                    Intent RegisterDelivery  = new Intent(ChooseOne.this, DeliveryRegistration.class);
                     startActivity(RegisterDelivery);
                 }
 

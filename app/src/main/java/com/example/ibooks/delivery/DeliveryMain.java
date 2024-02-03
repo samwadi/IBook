@@ -1,24 +1,30 @@
-package com.example.ibooks;
+package com.example.ibooks.delivery;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
-import androidx.fragment.app.Fragment;
+
 import androidx.annotation.NonNull;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-public class MainHome extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+import com.example.ibooks.HomeFragment;
+import com.example.ibooks.OrderFragment;
+import com.example.ibooks.ProfileFragment;
+import com.example.ibooks.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+public class DeliveryMain extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottom_navigation);
+        setContentView(R.layout.delivery_bottomnav);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.chef_bottom_navigation);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.delivery_bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         // Load the default fragment
-        loadFragment(new HomeFragment());
+        loadFragment(new AllOrdersFragment());
     }
 
     @Override
@@ -27,6 +33,10 @@ public class MainHome extends AppCompatActivity implements BottomNavigationView.
 
         switch (item.getItemId()) {
             case R.id.menu_home:
+                fragment = new AllOrdersFragment();
+                //TODO:: set AllOrders screen
+                break;
+            case R.id.menu_books:
                 fragment = new HomeFragment();
                 break;
             case R.id.menu_orders:
@@ -35,11 +45,12 @@ public class MainHome extends AppCompatActivity implements BottomNavigationView.
             case R.id.menu_profile:
                 fragment = new ProfileFragment();
                 break;
-            case R.id.menu_post:
-                fragment = new PostFragment();
+            case R.id.menu_selected:
+                fragment = new SelectedOrdersFragment();
+                //TODO:: set SelectedOrders screen
                 break;
             default:
-                fragment = new HomeFragment();
+                fragment = new AllOrdersFragment();
         }
 
 
