@@ -166,7 +166,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/txt1"
+                android:id="@+id/stateTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="State"

@@ -19,7 +19,7 @@ public class MainHome extends AppCompatActivity implements BottomNavigationView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.chef_bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.owner_bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         // Load the default fragment
