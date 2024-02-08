@@ -14,7 +14,6 @@
         android:textStyle="bold"
         android:layout_marginBottom="8dp" />
 
-    <!-- Orders requested from others -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_your_orders"
@@ -28,7 +27,7 @@
         android:id="@+id/text_other_orders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Other Orders"
+        android:text="@string/orders_for_others"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_below="@id/recycler_your_orders"

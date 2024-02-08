@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/bookNameTextView"
+            android:id="@+id/AllOrder_bookNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Book Name"
@@ -21,7 +21,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/requesterInfoTextView"
+            android:id="@+id/AllOrder_requesterInfoTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/acceptButton"
+            android:id="@+id/AllOrder_acceptButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

@@ -29,6 +29,7 @@
         <activity android:name=".owner.MainHome"></activity>
         <activity android:name=".delivery.DeliveryRegistration"> </activity>
         <activity android:name=".delivery.DeliveryLogin"></activity>
+        <activity android:name=".delivery.DeliveryMain"></activity>
 
 
 

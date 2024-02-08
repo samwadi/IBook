@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +28,7 @@ public class DeliveryOrderAdapter extends RecyclerView.Adapter<DeliveryOrderAdap
     @NonNull
     @Override
     public DeliveryOrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_order, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.allorder_item_order, parent, false);
         return new DeliveryOrderViewHolder(view);
     }
 
@@ -51,15 +52,15 @@ public class DeliveryOrderAdapter extends RecyclerView.Adapter<DeliveryOrderAdap
 
         public DeliveryOrderViewHolder(@NonNull View itemView) {
             super(itemView);
-            bookNameTextView = itemView.findViewById(R.id.bookNameTextView);
-            requesterInfoTextView = itemView.findViewById(R.id.requesterInfoTextView);
-            acceptButton = itemView.findViewById(R.id.acceptButton);
+            bookNameTextView = itemView.findViewById(R.id.AllOrder_bookNameTextView);
+            requesterInfoTextView = itemView.findViewById(R.id.AllOrder_requesterInfoTextView);
+            acceptButton = itemView.findViewById(R.id.AllOrder_acceptButton);
         }
 
         public void bind(Order order, OnItemClickListener listener) {
-            bookNameTextView.setText(order.getName());
+            bookNameTextView.setText(order.getName()+"");
 
-            String requesterInfo = "Requested by: " + order.getRequesterId() + "\nCity: " + order.getCity() + "\nArea: " + order.getArea();
+            String requesterInfo = "Requested by: " + order.getRequesterId() + "\nCity: Ramallah " + order.getCity() + "\nArea: Ramallah" + order.getArea();
             requesterInfoTextView.setText(requesterInfo);
 
             acceptButton.setOnClickListener(v -> {
@@ -72,4 +73,5 @@ public class DeliveryOrderAdapter extends RecyclerView.Adapter<DeliveryOrderAdap
     public interface OnItemClickListener {
         void onItemClick(Order order);
     }
+
 }

@@ -7,13 +7,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/text_orders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/selectedOrdersRecyclerView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="141dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="142dp"
+            android:layout_marginBottom="8dp"
+            android:text="Selected Orders"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/selectedOrdersRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            android:clipToPadding="false"
+            android:layout_height="661dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="29dp"
             android:background="#F5F5F5"
+            android:clipToPadding="false"
+            android:padding="16dp"
             android:scrollbars="vertical" />
 
     </RelativeLayout>

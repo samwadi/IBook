@@ -18,9 +18,9 @@ public class DeliveryMain extends AppCompatActivity implements BottomNavigationV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delivery_bottomnav);
+        setContentView(R.layout.activity_delivery_nav);
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.delivery_bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.delivery_bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         // Load the default fragment
@@ -59,7 +59,7 @@ public class DeliveryMain extends AppCompatActivity implements BottomNavigationV
 
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.delivery_fragment_container, fragment).commit();
             return true;
         }
         return false;

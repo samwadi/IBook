@@ -42,6 +42,7 @@ public class SelectedOrdersFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ToDeliver toDeliverTest=new ToDeliver("1233","43","4333","4455","Ramallah","Ramallah","33334");
 
         selectedOrdersRecyclerView = view.findViewById(R.id.selectedOrdersRecyclerView);
         selectedOrdersRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
@@ -62,7 +63,7 @@ public class SelectedOrdersFragment extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             selectedOrdersList.clear();
-
+                            selectedOrdersList.add(toDeliverTest);
                             for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                                 ToDeliver toDeliver = snapshot.getValue(ToDeliver.class);
                                 if (toDeliver != null) {

@@ -1,9 +1,11 @@
 package com.example.ibooks.delivery;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -33,6 +35,7 @@ public class AllOrdersFragment extends Fragment {
 
     private DatabaseReference ordersReference;
     private DatabaseReference usersReference;
+    private static final String TAG = "AllOrdersFragment";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,26 +48,64 @@ public class AllOrdersFragment extends Fragment {
         orderAdapter = new DeliveryOrderAdapter(orderList, new DeliveryOrderAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Order order) {
-                String bookId = order.getBookId();
-                String requesterId = order.getRequesterId();
-                String ownerId = order.getOwnerId();
-                String city = order.getCity();
-                String area = order.getArea();
+                if (order != null) {
+                    String bookId = order.getBookId();
+                    String requesterId = order.getRequesterId();
+                    String ownerId = order.getOwnerId();
+                    String city = order.getCity() != null ? order.getCity() + "Ramallah" : "Ramallah";
+                    String area = order.getArea() != null ? order.getArea() + "Ramallah" : "Ramallah";
 
-                DatabaseReference toDeliverRef = FirebaseDatabase.getInstance().getReference("toDeliver");
-                mAuth = FirebaseAuth.getInstance();
-                String toDeliveryId = toDeliverRef.push().getKey();
-                String deliveryPerson = mAuth.getCurrentUser().getUid();
-                ToDeliver toDeliver = new ToDeliver(toDeliveryId, bookId, requesterId, ownerId, city, area,deliveryPerson);
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    if (mAuth.getCurrentUser() != null) {
+                        String deliveryPerson = mAuth.getCurrentUser().getUid();
+                        if (deliveryPerson != null) {
+                            DatabaseReference toDeliverRef = FirebaseDatabase.getInstance().getReference("toDeliver");
+                            String toDeliveryId = toDeliverRef.push().getKey();
+                            if (toDeliveryId != null) {
+                                ToDeliver toDeliver = new ToDeliver(toDeliveryId, bookId, requesterId, ownerId, city, area, deliveryPerson);
+                                toDeliverRef.child(toDeliveryId).setValue(toDeliver)
+                                        .addOnSuccessListener(aVoid -> {
+                                            // Operation successful, remove the order from the Orders
+                                            DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference("Orders");
+                                            ordersRef.child(order.getOrderId()).removeValue()
+                                                    .addOnSuccessListener(aVoid1 -> {
+                                                        // Successfully removed the order, update the UI
+                                                        orderList.remove(order);
+                                                        orderAdapter.notifyDataSetChanged();
+                                                    })
+                                                    .addOnFailureListener(e -> {
+                                                        // Failed to remove the order, handle the error
+                                                        Log.e(TAG, "Failed to remove order: " + e.getMessage());
+                                                        Toast.makeText(getContext(), "Failed to remove order", Toast.LENGTH_SHORT).show();
 
-                toDeliverRef.child(toDeliveryId).setValue(toDeliver);
+                                                    });
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            // Failed to set the value, handle the error
+                                            Log.e(TAG, "Failed to set toDeliver value: " + e.getMessage());
+                                            Toast.makeText(getContext(), "Failed to set toDeliver value", Toast.LENGTH_SHORT).show();
+                                        });
+                            } else {
+                                Log.e(TAG, "toDeliveryId is null");
+                                Toast.makeText(getContext(), "toDeliveryId is null", Toast.LENGTH_SHORT).show();
 
-                // remove the order from the Orders
-                DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference("Orders");
-                ordersRef.child(order.getOrderId()).removeValue();
-                orderList.remove(order);
-                orderAdapter.notifyDataSetChanged();
+                            }
+                        } else {
+                            Log.e(TAG, "deliveryPerson is null");
+                            Toast.makeText(getContext(), "deliveryPerson is null", Toast.LENGTH_SHORT).show();
+
+                        }
+                    } else {
+                        Log.e(TAG, "CurrentUser is null");
+                        Toast.makeText(getContext(), "CurrentUser is null", Toast.LENGTH_SHORT).show();
+
+                    }
+                } else {
+                    Log.e(TAG, "Order is null");
+                    Toast.makeText(getContext(), "Order is null", Toast.LENGTH_SHORT).show();
+                }
             }
+
         });
 
         recyclerView.setAdapter(orderAdapter);

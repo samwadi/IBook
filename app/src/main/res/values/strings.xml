@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">IBooks</string>
     <string name="firstname">FirstName</string>
+    <string name="orders_for_others">Orders requested from others</string>
     <string-array name="State">
         <item>Ramallah</item>
         <item>Birzeit</item>
