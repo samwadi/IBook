@@ -13,6 +13,8 @@ import com.example.ibooks.delivery.DeliveryLogin;
 import com.example.ibooks.delivery.DeliveryRegistration;
 import com.example.ibooks.owner.BookOwnerLogin;
 import com.example.ibooks.owner.BookOwnerRegistration;
+import com.example.ibooks.user.UserLogin;
+import com.example.ibooks.user.UserRegister;
 
 public class ChooseOne extends Activity {
     Button Owner,Customer,DeliveryPerson;
@@ -59,22 +61,22 @@ public class ChooseOne extends Activity {
             }
         });
 //
-//        Customer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                if(type.equals("Email")){
-//                    Intent loginemailcust  = new Intent(ChooseOne.this,Login.class);
-//                    startActivity(loginemailcust);
-//                    finish();
-//                }
-//                if(type.equals("SignUp")){
-//                    Intent Registercust  = new Intent(ChooseOne.this,Registration.class);
-//                    startActivity(Registercust);
-//                }
-//
-//            }
-//        });
+    Customer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(type.equals("Email")){
+                    Intent loginemailcust  = new Intent(ChooseOne.this, UserLogin.class);
+                    startActivity(loginemailcust);
+                    finish();
+                }
+                if(type.equals("SignUp")){
+                    Intent Registercust  = new Intent(ChooseOne.this, UserRegister.class);
+                    startActivity(Registercust);
+                }
+
+            }
+        });
 //
         DeliveryPerson.setOnClickListener(new View.OnClickListener() {
             @Override

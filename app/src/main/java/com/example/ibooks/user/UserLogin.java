@@ -1,11 +1,14 @@
 package com.example.ibooks.user;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -22,32 +25,37 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import com.example.ibooks.ForgotPassword;
-import com.example.ibooks.R;
+
 import com.google.android.material.textfield.TextInputLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
-public class UserLogin  extends AppCompatActivity {
+
+import com.example.ibooks.R;
+
+public class UserLogin extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     TextInputLayout email,pass;
-    Button Signin;
+    Button Signin ;
     TextView Forgotpassword , signup;
 
     String emailid,pwd;
-
     RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
         requestQueue = Volley.newRequestQueue(this);
-        sharedPreferences=  PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences=getSharedPreferences("IBooks", Context.MODE_PRIVATE);
+//        =  PreferenceManager.getDefaultSharedPreferences(this);
         try{
 
-            email = (TextInputLayout)findViewById(R.id.Lemail);
-            pass = (TextInputLayout)findViewById(R.id.Lpassword);
-            Signin = (Button)findViewById(R.id.button4);
-            signup = (TextView) findViewById(R.id.textView3);
-            Forgotpassword = (TextView)findViewById(R.id.forgotpass);
+            email = (TextInputLayout)findViewById(R.id.LogInEmailUser);
+            pass = (TextInputLayout)findViewById(R.id.LogInPasswordUser);
+            Signin = (Button)findViewById(R.id.userLogInBtn);
+            signup = (TextView) findViewById(R.id.CreateUser);
+            Forgotpassword = (TextView)findViewById(R.id.forgotPassUser);
+            //           Signinphone = (Button)findViewById(R.id.btnphone);
 
 //            Fauth = FirebaseAuth.getInstance();
 
@@ -76,16 +84,23 @@ public class UserLogin  extends AppCompatActivity {
                             throw new RuntimeException(e);
                         }
 
-                        Log.d("login", "clicked on login");
+//                        Log.d("login", "clicked on login");
                         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST, url, jsonLogin, new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
                                 try {
-                                    Log.d("login", "onResponse: "+response.get("Mobile_No").toString());
+
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("Mobile_No",response.get("Mobile_No").toString());
+                                    editor.putString("Fname",response.get("Fname").toString());
+                                    editor.putString("Lname",response.get("Lname").toString());
+                                    editor.putString("Email",emailid);
+                                    editor.putString("Password",pwd);
+                                    editor.putBoolean("loged_in",true);
+                                    editor.commit();
                                     mDialog.dismiss();
-                                    Intent intent=new Intent(UserLogin.this,UserMainHome.class);
+                                    Intent intent=new Intent(UserLogin.this, UserMainHome.class);
+//                                    Intent intent=new Intent(CustomerLogin.this, MainHome.class);
                                     startActivity(intent);
                                     finish();
                                     Toast.makeText(UserLogin.this, "logged in successfully", Toast.LENGTH_LONG).show();
@@ -135,7 +150,7 @@ public class UserLogin  extends AppCompatActivity {
             signup.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   // startActivity(new Intent(UserLogin.this,ChefRegistration.class));
+                    startActivity(new Intent(UserLogin.this, UserRegister.class));
                     finish();
                 }
             });
@@ -146,13 +161,19 @@ public class UserLogin  extends AppCompatActivity {
                     finish();
                 }
             });
+//            Signinphone.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    startActivity(new Intent(CustomerLogin.this,Chefloginphone.class));
+//                    finish();
+//                }
+//            });
         }catch (Exception e){
             Toast.makeText(this,e.getMessage(),Toast.LENGTH_LONG).show();
         }
-
     }
-    String emailpattern  = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+    String emailpattern  = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     public boolean isValid(){
 
         email.setErrorEnabled(false);

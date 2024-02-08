@@ -75,7 +75,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/CreateUser"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_gravity="center"
