@@ -22,7 +22,7 @@ protected void onCreate(Bundle savedInstanceState) {
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         // Load the default fragment
-        loadFragment(new HomeFragment());
+        loadFragment(new UserMainFragment());
         }
 
 @Override
@@ -31,7 +31,7 @@ public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
         case R.id.menu_home:
-        fragment = new HomeFragment();
+        fragment = new UserMainFragment();
         break;
         case R.id.menu_orders:
         fragment = new OrderFragment();
@@ -41,7 +41,7 @@ public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         break;
 
 default:
-        fragment = new HomeFragment();
+        fragment = new UserMainFragment();
         }
 
 
