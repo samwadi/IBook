@@ -30,8 +30,9 @@
         <activity android:name=".delivery.DeliveryRegistration"> </activity>
         <activity android:name=".delivery.DeliveryLogin"></activity>
         <activity android:name=".delivery.DeliveryMain"></activity>
-
-
+        <activity android:name=".user.UserLogin"></activity>
+        <activity android:name=".user.UserMainHome"></activity>
+        <activity android:name=".user.UserRegister"></activity>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
