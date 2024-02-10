@@ -139,7 +139,9 @@ public class AllOrdersFragment extends Fragment {
     }
 
     private void loadUserDetails(Order order) {
-        usersReference.child(order.getRequesterId()).addListenerForSingleValueEvent(new ValueEventListener() {
+        String encodedEmail = encodeEmailAddress(order.getRequesterId());
+
+        usersReference.child(encodedEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
@@ -156,4 +158,10 @@ public class AllOrdersFragment extends Fragment {
             }
         });
     }
+
+    private String encodeEmailAddress(String emailAddress) {
+        // Replace '.' with ',' or any other character
+        return emailAddress.replace('.', ',');
+    }
+
 }
